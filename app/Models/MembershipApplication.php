@@ -16,6 +16,7 @@ class MembershipApplication extends Model
         'user_id',
         'membership_plan_id',
         'price_snapshot',
+        'duration_months_snapshot',
         'status',
         'reviewed_by',
         'reviewed_at',
