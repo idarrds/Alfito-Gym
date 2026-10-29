@@ -1,4 +1,4 @@
-@extends('layouts.alfito')
+@extends('layouts.rivolt')
 
 @section('title', 'Verifikasi Pembayaran | RIVOLT')
 
