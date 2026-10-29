@@ -1,52 +1,103 @@
+
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+
+    <p class="auth-kicker">
+        <span class="auth-dot"></span>
+        JOIN THE MOVEMENT
+    </p>
+
+    <h1 class="auth-heading">
+        CREATE YOUR <span>ACCOUNT.</span>
+    </h1>
+
+    <p class="auth-subtitle">
+        Start your journey. Build your strength. Become ALFITO.
+    </p>
+
+    <form method="POST" action="{{ route('register') }}" class="auth-form">
         @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        <div class="auth-field">
+            <label for="name" class="auth-label">Full Name</label>
+
+            <input
+                id="name"
+                class="auth-input"
+                type="text"
+                name="name"
+                value="{{ old('name') }}"
+                placeholder="Enter your full name"
+                required
+                autofocus
+                autocomplete="name"
+            >
+
+            @error('name')
+                <p class="auth-error">{{ $message }}</p>
+            @enderror
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <div class="auth-field">
+            <label for="email" class="auth-label">Email Address</label>
+
+            <input
+                id="email"
+                class="auth-input"
+                type="email"
+                name="email"
+                value="{{ old('email') }}"
+                placeholder="you@example.com"
+                required
+                autocomplete="username"
+            >
+
+            @error('email')
+                <p class="auth-error">{{ $message }}</p>
+            @enderror
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <div class="auth-field">
+            <label for="password" class="auth-label">Password</label>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+            <input
+                id="password"
+                class="auth-input"
+                type="password"
+                name="password"
+                placeholder="Create a password"
+                required
+                autocomplete="new-password"
+            >
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            @error('password')
+                <p class="auth-error">{{ $message }}</p>
+            @enderror
         </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+        <div class="auth-field">
+            <label for="password_confirmation" class="auth-label">
+                Confirm Password
+            </label>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            <input
+                id="password_confirmation"
+                class="auth-input"
+                type="password"
+                name="password_confirmation"
+                placeholder="Enter your password again"
+                required
+                autocomplete="new-password"
+            >
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
+        <button type="submit" class="auth-submit">
+            CREATE ACCOUNT <span aria-hidden="true">↗</span>
+        </button>
     </form>
+
+    <p class="auth-footer">
+        Already have an account?
+        <a href="{{ route('login') }}" class="auth-link">Sign in</a>
+    </p>
+
 </x-guest-layout>
