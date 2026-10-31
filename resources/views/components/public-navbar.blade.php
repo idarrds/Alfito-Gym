@@ -1,4 +1,3 @@
-
 <header class="site-header">
     <div class="container nav-inner">
 
@@ -16,9 +15,7 @@
         </nav>
 
         <div class="nav-actions">
-            <a href="{{ route('login') }}" class="nav-login">
-                Log in
-            </a>
+            <a href="{{ route('login') }}" class="nav-login">Log in</a>
 
             <a href="{{ route('register') }}" class="btn btn-primary btn-small">
                 Join Now <span aria-hidden="true">↗</span>
