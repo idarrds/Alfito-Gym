@@ -1,4 +1,3 @@
-
 <x-guest-layout>
 
     <p class="auth-kicker">
@@ -21,7 +20,7 @@
     @endif
 
     <form method="POST" action="{{ route('login') }}" class="auth-form">
-        @csrf
+    @csrf
 
         <div class="auth-field">
             <label for="email" class="auth-label">Email Address</label>
