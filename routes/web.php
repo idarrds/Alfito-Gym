@@ -33,6 +33,10 @@ Route::view('/', 'pages.home')->name('home');
 Route::view('/programs', 'programs.index')
     ->name('programs.index');
 
+// PUBLIC TRAINERS
+Route::view('/trainers', 'trainers.index')
+    ->name('trainers.index');
+
 // PUBLIC MEMBERSHIP
 Route::get('/membership', [MembershipController::class, 'index'])
     ->name('membership');
