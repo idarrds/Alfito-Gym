@@ -1,4 +1,10 @@
+
 <x-guest-layout>
+
+    <a href="{{ url('/') }}" class="back-home">
+        <span aria-hidden="true">←</span>
+        BACK TO HOME
+    </a>
 
     <p class="auth-kicker">
         <span class="auth-dot"></span>
@@ -20,11 +26,10 @@
     @endif
 
     <form method="POST" action="{{ route('login') }}" class="auth-form">
-    @csrf
+        @csrf
 
         <div class="auth-field">
             <label for="email" class="auth-label">Email Address</label>
-
             <input
                 id="email"
                 class="auth-input"
@@ -44,7 +49,6 @@
 
         <div class="auth-field">
             <label for="password" class="auth-label">Password</label>
-
             <input
                 id="password"
                 class="auth-input"
@@ -82,5 +86,30 @@
         Don't have an account?
         <a href="{{ route('register') }}" class="auth-link">Create account</a>
     </p>
+
+    <style>
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #c4f56a;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .back-home:hover {
+            color: #ffffff;
+            transform: translateX(-4px);
+        }
+
+        .back-home span {
+            font-size: 20px;
+            line-height: 1;
+        }
+    </style>
 
 </x-guest-layout>
